@@ -7,6 +7,11 @@ import java.util.Scanner;
 
 import Tree.Tree;
 
+/**
+ * Driver class for red black tree implementation. Defaults to Integers but any Comparable class can be used.
+ * @author Jeffrey Tran
+ *
+ */
 public class Driver {
 	public static void main(String[] args) throws FileNotFoundException {
 		Tree<Integer> t = new Tree<Integer>();
@@ -17,6 +22,7 @@ public class Driver {
 			t.add(scan.nextInt());
 		}
 		
-		System.out.println();
+		System.out.println("Finished");
+		System.out.println(t);
 	}
 }

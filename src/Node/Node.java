@@ -1,10 +1,10 @@
 package Node;
 
 public class Node<T extends Comparable<T>> {
-	public Node<T> left, right;
-	public Color leftLink, rightLink; // true if left
-	public T data;
-	public boolean deleteFlag;
+	private Node<T> left, right;
+	public Color leftLink, rightLink;
+	private T data;
+	private boolean deleteFlag;
 	
 	public Node(T data) {
 		this.data = data;
@@ -17,6 +17,10 @@ public class Node<T extends Comparable<T>> {
 	
 	public boolean twoRedLinks() {
 		return leftLink == Color.RED && rightLink == Color.RED;
+	}
+	
+	public T getData() {
+		return this.data;
 	}
 	
 	public void setTwoBlack() {
@@ -44,6 +48,18 @@ public class Node<T extends Comparable<T>> {
 		this.leftLink = Color.BLACK;
 		
 		return newHead;
+	}
+	
+	public Node<T> search(T element) {
+		if(element.compareTo(data) == 0) {
+			return this;
+		}
+		else if(element.compareTo(data) < 0) {
+			return left != null? left.search(element) : null;
+		}
+		else {
+			return right != null? right.search(element) : null;
+		}
 	}
 	
 	public Node<T> add(T element) {
